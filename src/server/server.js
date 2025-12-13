@@ -31,8 +31,11 @@ const createNewPlayer = () => {
     name: "Joe",
     x: Math.random() * 100,
     y: Math.random() * 100,
-    state: "waiting",
-    chosen: "move",
+    state: "idle",
+    chosenMove: "none",
+    battlingPlayerId: null,
+    battleScore: 0,
+    totalWins: 0,
   };
 };
 

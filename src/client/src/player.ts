@@ -2,12 +2,15 @@ import { Sprite } from "pixi.js";
 import { GameContext } from "./main";
 
 export interface PlayerData {
-  id: string;
+  id: number;
   name: string;
   x: number;
   y: number;
-  state: "waiting" | "battling" | "dead";
-  chosenMove: "rock" | "paper" | "scissors";
+  state: "idle" | "battling" | "dead";
+  chosenMove: "none" | "rock" | "paper" | "scissors";
+  battlingPlayerId: number;
+  battleScore: number;
+  totalWins: number;
 }
 
 export interface Player extends PlayerData {
