@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build:client": "npm run lint && tsc && vite build src/client",
+    "build:client": "tsc && vite build src/client",
     "lint": "eslint ./src",
     "client": "vite src/client",
+    "start": "vite build src/client && node src/server/server.js",
     "server": "node src/server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -37,21 +37,25 @@ src/server/server.js
 
 Players start in the idle state
 
-If you (the context.currentPlayer) are in the "idle" state,
-when you click on another player who is also in the "idle" state
-both players will be put into the "battling" state (this requires a message to the server)
-the server sets the appropriate battlingPlayerId on each player
-The server should move the player who initiated the battle 50 pixels below the player he challenged
-the server should initialize the battleScore to zero for both players
-the local player's actionUI is made visible
+- If the context.currentPlayer is in the "idle" state,
+  - when you click on another player who is also in the "idle" state
+    - both players will be put into the "battling" state (this requires a message to the server)
+      - the server sets the appropriate battlingPlayerId on each player
+      - The server should move the player who initiated the battle 50 pixels below the player he challenged
+      - the server should initialize the battleScore to zero for both players
+    - the local player's actionUI is made visible
 
-when the local player clicks one of the buttons on the action ui send a message to the server setting the currently chosen move (rock, paper or scissors)
+- when the local player clicks one of the buttons on the action ui send a message to the server setting the currently chosen move (rock, paper or scissors)
 
-on the server, when we receive a move choice
-if both players have submitted a move, then the outcome is decided
-the battleScore is updated for the winner
-in a player succeds in a best of 3 scoring, the match is over
-The winner is set to 'idle' state and the loser is set to 'dead'
-the winner's total wins is increased by 1
-the clients should be notified of this change
-the current player's actionUI should be made not visible
+- on the server, when we receive a move choice
+  - if both players have submitted a move, then the outcome is decided
+  - the battleScore is updated for the winner
+  - Send messages to both players notifying them of the move choice of the other player and the outcome. For now just console.log this on the client.
+
+  - if one player succeeds in a best of 3 scoring, the match is over
+
+- When the match is over,
+  - the winner is set to 'idle' state and the loser is set to 'dead'
+  - the winner's total wins is increased by 1
+  - the client players should be notified of this state change
+  - the current player's actionUI should be made not visible
