@@ -1,23 +1,22 @@
 import express from "express";
-import path from "path";
-import WebSocket, { WebSocketServer } from "ws";
+import { WebSocketServer } from "ws";
 import websocketSettings from "./websocket.settings.js";
 
 const app = express();
-const PORT = 8079;
+const PORT = 8080;
 
 const players = {};
 let currentPlayerId = 0;
 
 // For hosting the static content:
 app.use(express.static("src/client/dist"));
-
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
-});
+app.use(express.json({ extended: false}));
+// app.listen(PORT, () => {
+//   console.log(`Server running at http://localhost:${PORT}`);
+// });
 
 // Web socket server
-const wss = new WebSocketServer(websocketSettings);
+const wss = new WebSocketServer({...websocketSettings, server: app.listen(PORT) });
 const broadcastAll = (msg) => {
   wss.clients.forEach(function each(ws) {
     ws.send(JSON.stringify(msg));

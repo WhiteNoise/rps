@@ -1,5 +1,4 @@
 module.exports = {
-  port: 8080,
   perMessageDeflate: {
     zlibDeflateOptions: {
       // See zlib defaults.
