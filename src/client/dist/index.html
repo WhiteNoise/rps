@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en" style="padding: 0; margin: 0">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+    <script type="module" crossorigin src="/assets/index-CpBKya_y.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CfT8bj0x.css">
+  </head>
+
+  <body style="padding: 0; margin: 0">
+    <div id="app">
+      <div id="pixi-container"></div>
+      <div
+        id="actionUI"
+        style="
+          display: none;
+          position: absolute;
+          bottom: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          background: rgba(0, 0, 0, 0.8);
+          padding: 20px;
+          border-radius: 10px;
+          color: white;
+          text-align: center;
+        "
+      >
+        <div id="battleScore" style="margin-bottom: 10px; font-size: 18px">
+          Score: 0 - 0
+        </div>
+        <button
+          id="rockBtn"
+          style="margin: 5px; padding: 10px 20px; font-size: 16px"
+        >
+          ✊ Rock
+        </button>
+        <button
+          id="paperBtn"
+          style="margin: 5px; padding: 10px 20px; font-size: 16px"
+        >
+          🖐 Paper
+        </button>
+        <button
+          id="scissorsBtn"
+          style="margin: 5px; padding: 10px 20px; font-size: 16px"
+        >
+          ✌️ Scissors
+        </button>
+      </div>
+      <div
+        id="setupDialog"
+        style="
+          display: none;
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background: white;
+          padding: 30px;
+          border-radius: 10px;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+          z-index: 1000;
+        "
+      >
+        <h2 style="margin-top: 0">Setup Your Character</h2>
+        <div style="margin-bottom: 20px">
+          <label style="display: block; margin-bottom: 5px">Name:</label>
+          <input
+            type="text"
+            id="nameInput"
+            style="
+              width: 200px;
+              padding: 8px;
+              border: 1px solid #ccc;
+              border-radius: 4px;
+            "
+            placeholder="Enter your name"
+          />
+        </div>
+        <div style="margin-bottom: 20px">
+          <label style="display: block; margin-bottom: 10px">Appearance:</label>
+          <div
+            id="appearanceGrid"
+            style="
+              display: grid;
+              grid-template-columns: repeat(6, 40px);
+              grid-template-rows: repeat(4, 40px);
+              gap: 5px;
+            "
+          >
+            <!-- 24 empty slots for appearance options -->
+          </div>
+        </div>
+        <button
+          id="setupOkBtn"
+          style="
+            padding: 10px 30px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+          "
+        >
+          OK
+        </button>
+      </div>
+      <div
+        id="chatBar"
+        style="
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: rgba(0, 0, 0, 0.8);
+          padding: 10px;
+          display: flex;
+          gap: 10px;
+        "
+      >
+        <input
+          type="text"
+          id="chatInput"
+          style="
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+          "
+          placeholder="Type a message..."
+        />
+        <button
+          id="chatSend"
+          style="
+            padding: 8px 16px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+          "
+        >
+          Send
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

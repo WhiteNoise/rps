@@ -6,7 +6,7 @@
     "build:client": "tsc && vite build src/client",
     "lint": "eslint ./src",
     "client": "vite src/client",
-    "start": "vite build src/client && node src/server/server.js",
+    "start": "node src/server/server.js",
     "server": "node src/server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

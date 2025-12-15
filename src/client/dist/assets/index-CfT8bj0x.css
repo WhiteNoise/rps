@@ -1,0 +1,1 @@
+.appearance-slot{width:40px;height:40px;border:2px solid #ccc;border-radius:4px;cursor:pointer;background:#f0f0f0}.appearance-slot.selected{border-color:#007bff}body{background-color:#000}#app{width:100%}#pixi-container>canvas{margin:auto;display:block}
