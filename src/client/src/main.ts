@@ -1,10 +1,10 @@
 import { Application, Assets, Spritesheet, Text } from "pixi.js";
-import charactersImgUrl from "../assets/people.png";
 import charactersJson from "../assets/people.json";
+import charactersImgUrl from "../assets/people.png";
 
 import mainFont from "../assets/ComicRelief-Regular.ttf";
-import { AttackMove, Player } from "./player";
 import { handleMessage } from "./messages";
+import { AttackMove, Player } from "./player";
 
 export type GameContext = {
   app: Application;
@@ -84,7 +84,18 @@ export const moveToBtn: Record<AttackMove, HTMLElement | null> = {
   };
 
   console.log("Starting websocket");
-  const socket = new WebSocket(`ws://${window.location.hostname}:8080`);
+
+  var serverUrl;
+  var scheme = 'ws';
+  var location = document.location;
+
+  if (location.protocol === 'https:') {
+    scheme += 's';
+  }
+
+  serverUrl = `${scheme}://${location.hostname}:${location.port}`;
+
+  const socket = new WebSocket(serverUrl);
   // Executes when the connection is successfully established.
   socket.addEventListener("open", () => {
     console.log("WebSocket connection established!");
